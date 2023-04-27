@@ -37,7 +37,7 @@ cd ../..
 make microbenchmark kmer_search_benchmark
 ```
 
-This creates an executables called `microbenchmark` and `kmer_search`. Both of these take as input a plain-matrix SBWT index. The SBWT index can be built by passing a list of filenames to the SBWT program, one filename per line. For the E. coli genomes, if the genomes are that the directory `coli3682_dataset` containing a set of fasta-files, we can create the filename list by running `find coli3682_dataset/ -type f > list.txt`. For the metagenome dataset, the input file list should contain just the line file `ERR5035349_1.fastq`. Given a list file, the SBWT index can then be built with:
+This creates an executables called `microbenchmark` and `kmer_search`. Both of these take as input a plain-matrix SBWT index. The SBWT index can be built by passing a list of filenames to the SBWT program, one filename per line. For the E. coli genomes, if the genomes are in the directory `coli3682_dataset`, we can create the filename list by running `find coli3682_dataset/ -type f > list.txt`. For the metagenome dataset, the input file list should contain just the line file `ERR5035349_1.fastq`. Given a list file, the SBWT index can then be built with:
 
 ```
 mkdir temp
