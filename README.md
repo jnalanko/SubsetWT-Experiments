@@ -2,17 +2,17 @@
 
 This repository contains instructions and code to reproduce the experiments in the paper "Subset Wavelet Trees" for SEA 2023.
 
-## Downloading the data
+# Downloading the data
 
 Downloading the data requires `curl`, and `fasterq-dump` from the [SRA toolkit](https://hpc.nih.gov/apps/sratoolkit.html).
 
-### 3682 E. coli genomes
+## 3682 E. coli genomes
 
 ```
 curl -O https://zenodo.org/record/6577997/files/coli3682_dataset.tar.gz
 ```
 
-### 17,336,887 metagenomic reads
+## 17,336,887 metagenomic reads
 ```
 fasterq-dump ERR5035349
 ```
