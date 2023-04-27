@@ -1,4 +1,4 @@
-# SubsetWT
+# SubsetWT experiments
 
 This repository contains code to reproduce the experiments in the paper "Subset Wavelet Trees" for SEA 2023.
 
