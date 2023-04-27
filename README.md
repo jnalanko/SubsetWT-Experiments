@@ -43,10 +43,4 @@ make
 
 This creates an executable called `benchmark`.
 
-# Running
 
-The code takes in a plain-subsetwt SBWT file. There is one small example containing 3 E. coli genomes at `index.sswt`. To benchmark on it, run:
-
-```
-./benchmark index.sswt
-```
