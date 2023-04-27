@@ -1,5 +1,6 @@
-all:
-	g++ main.cpp ./sdsl-lite/build/lib/libsdsl.a -std=c++20 -I sdsl-lite/include/ -I include -I ./sdsl-lite/build/external/libdivsufsort/include/ -g -o benchmark -Wno-deprecated-declarations -O3
+microbenchmark:
+	g++ main.cpp src/SeqIO.cpp src/globals.cpp ./sdsl-lite/build/lib/libsdsl.a -std=c++20 -I sdsl-lite/include/ -O3 -I include -I ./sdsl-lite/build/external/libdivsufsort/include/ -g -o benchmark -Wno-deprecated-declarations -march=native -DNDEBUG
 
-Base4RRR:
-	g++ Base4RRR_main.cpp ./sdsl-lite/build/lib/libsdsl.a -std=c++20 -I sdsl-lite/include/ -I include -I ./sdsl-lite/build/external/libdivsufsort/include/ -g -o Base4RRR -Wno-deprecated-declarations
+kmer_search_benchmark:
+	g++ kmer_search.cpp src/SeqIO.cpp src/globals.cpp ./sdsl-lite/build/lib/libsdsl.a -std=c++20 -I sdsl-lite/include/ -O3 -I include -I ./sdsl-lite/build/external/libdivsufsort/include/ -g -o kmer_search -Wno-deprecated-declarations -march=native -DNDEBUG
+
