@@ -37,16 +37,16 @@ cd ../..
 make microbenchmark kmer_search_benchmark
 ```
 
-This creates an executables called `microbenchmark` and `kmer_search`. Both of these take as input a plain-matrix SBWT index. The SBWT index can be built by passing a list of filenames to the SBWT program, one filename per line. For example, if we have a directory `coli3682_dataset` containing a set of fasta-files, we can create the filename list by running `find coli3682_dataset/ -type f > list.txt`. The SBWT index can then be built with:
+This creates an executables called `microbenchmark` and `kmer_search`. Both of these take as input a plain-matrix SBWT index. The SBWT index can be built by passing a list of filenames to the SBWT program, one filename per line. For the E. coli genomes, if the genomes are that the directory `coli3682_dataset` containing a set of fasta-files, we can create the filename list by running `find coli3682_dataset/ -type f > list.txt`. For the metagenome dataset, the input file list should contain just the line file `ERR5035349_1.fastq`. Given a list file, the SBWT index can then be built with:
 
 ```
 mkdir temp
 ./SBWT/build/bin/sbwt build -i list.txt -o index.sbwt -k 31 --add-reverse-complements --n-threads 4 --ram-gigas 8 --temp-dir temp
 ```
 
-This will save the index to index.sbwt. This should not take more than a few hours for any of the datasets in the paper.
+This will save the index to index.sbwt. This should not take more than a few hours for either of the datasets in the paper.
 
-To run the microbenchmark of the paper on this index, run `./microbenchmark index.sbwt`. To run the k-mer search benchmark, run `./kmer_search index.sbwt queries.fna`, where queries.fna is the file containing the queries. In case of the metagenomic read set, we queried a file containing the first 25,000 reads in the dataset, and in case of the E. coli genomes, we queried the genome `coli3682_dataset/GCA_000005845.2_ASM584v2.fna`.
+To run the microbenchmark of the paper on this index, run `./microbenchmark index.sbwt`. To run the k-mer search benchmark, run `./kmer_search index.sbwt queries.fastq`, where queries.fna is the file containing the queries. In case of the metagenomic read set, we queried a file containing the first 25,000 reads of `ERR5035349_1.fastq` (extract with `head -n 100000 ERR5035349_1.fastq > queries.fastq`), and in case of the E. coli genomes, we queried the genome `coli3682_dataset/GCA_000005845.2_ASM584v2.fna`.
 
 
 
