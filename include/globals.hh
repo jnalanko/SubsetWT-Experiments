@@ -2,6 +2,9 @@
 #pragma once
 
 #include <chrono>
+#include <cassert>
+#include <string>
+#include <iostream>
 
 #ifndef MAX_KMER_LENGTH
 #define MAX_KMER_LENGTH 32
@@ -11,9 +14,7 @@ using namespace std;
 using namespace std::chrono;
 
 
-int64_t current_time_micros(){
-    return (std::chrono::duration_cast< microseconds >(high_resolution_clock::now().time_since_epoch())).count();
-}
+int64_t current_time_micros();
 
 // Table mapping ascii values of characters to their reverse complements,
 // lower-case to lower case, upper-case to upper-case. Non-ACGT characters
@@ -66,17 +67,6 @@ constexpr char get_rc(char c){
 }
 
 // Returns the number of bytes written
-int64_t serialize_string(const string& S, ostream& out){
-    int64_t size = S.size();
-    out.write((char*)&size, sizeof(size));
-    out.write(S.data(), size);
-    return sizeof(size) + size;
-}
+int64_t serialize_string(const string& S, ostream& out);
 
-string load_string(istream& in){
-    int64_t size;
-    in.read((char*)&size, sizeof(size));
-    string S(size, '\0');
-    in.read((char*)&S[0], size); // The C++ standard guarantees that std::string is stored contiguously in memory
-    return S;
-}
+string load_string(istream& in);

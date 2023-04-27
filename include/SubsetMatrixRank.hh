@@ -112,6 +112,11 @@ void load(istream& is){
     }
 }
 
+int64_t size_in_bytes() const{
+    return sdsl::size_in_bytes(A_bits) + sdsl::size_in_bytes(C_bits) + sdsl::size_in_bytes(G_bits) + sdsl::size_in_bytes(T_bits) 
+    + sdsl::size_in_bytes(A_bits_rs) + sdsl::size_in_bytes(C_bits_rs) + sdsl::size_in_bytes(G_bits_rs) + sdsl::size_in_bytes(T_bits_rs);
+}
+
 };
 
 }

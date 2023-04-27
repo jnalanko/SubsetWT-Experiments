@@ -25,11 +25,9 @@
 #include <iostream>
 #include <stdexcept>
 #include <list>
-
 #if defined(__BMI2__)
 #include <immintrin.h>
 #endif
-
 #include <fstream>
 
 namespace sbwt{
